@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mistakes Summary</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Summary of Your Mistakes</h2>
+    {% if records %}
+        <ul class="list-group">
+            {% for rec in records %}
+                <li class="list-group-item">
+                    <strong>[{{ rec[0] }}]</strong> You said: "{{ rec[1] }}"
+                    <br>
+                    <em>Mistake feedback:</em> {{ rec[2] }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div class="alert alert-success text-center">No mistakes were recorded during the session.</div>
+    {% endif %}
+    <div class="text-center mt-4">
+        <a href="/chat" class="btn btn-primary">Back to Chat</a>
+        <a href="/" class="btn btn-secondary">Start New Session</a>
+    </div>
+</div>
+</body>
+</html>
